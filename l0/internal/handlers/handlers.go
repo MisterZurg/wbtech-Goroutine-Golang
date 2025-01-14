@@ -6,8 +6,8 @@ import (
 )
 
 type Repository interface {
-	CreateOrder()
-	GetOrder()
+	CreateOrder(order Order)
+	GetOrder(string) Order
 }
 
 type Service struct {
