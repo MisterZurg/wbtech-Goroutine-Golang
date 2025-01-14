@@ -1,0 +1,23 @@
+services:
+  wb-db:
+    container_name: wb-db
+    image: postgres:16.2-alpine
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "wbtech_school"    # This optional env can be used to define a different name for the default database that is created when the image is first started. If it is not specified, then the value of POSTGRES_USER will be used.
+      POSTGRES_HOST: "wb-db"          # service-name
+      POSTGRES_PORT: "5432"
+    restart: always
+    networks:
+      - wb-dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./db/migrations/postgres_init.sql:/docker-entrypoint-initdb.d/postgres_init.sql"
+      #- "./postgres-data:/var/lib/postgresql/data"
+
+
+networks:
+  wb-dev:
+    driver: bridge

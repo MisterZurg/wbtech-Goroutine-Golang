@@ -1,0 +1,67 @@
+### Example order
+GET localhost:3000/orders/b563feb7b2b84b6test
+Host: localhost:8000
+Content-Type: application/json
+Accept: */*
+
+### Create new order
+POST http://localhost:3000/orders HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: */*
+
+{
+  "order_uid": "mrbeasteb7b2b84b6test",
+  "track_number": "MRBEAST",
+  "entry": "MRBST",
+  "delivery": {
+    "name": "MR Beast Delivery",
+    "phone": "+1(917)259-6364",
+    "zip": "28562",
+    "city": "NY",
+    "address": "1245 Sugg Parkway",
+    "region": "Greenville",
+    "email": "mrbeast@nightmedia.co"
+  },
+  "payment": {
+    "transaction": "mrbeasteb7b2b84b6test",
+    "request_id": "",
+    "currency": "USD",
+    "provider": "tabby",
+    "amount": 1817,
+    "payment_dt": 1637907727,
+    "bank": "t-bank",
+    "delivery_cost": 1500,
+    "goods_total": 317,
+    "custom_fee": 0
+  },
+  "items": [
+    {
+      "chrt_id": 9934930,
+      "track_number": "MRBEAST",
+      "price": 453,
+      "rid": "ab4219087a764ae0btest",
+      "name": "Feastables",
+      "sale": 30,
+      "size": "0",
+      "total_price": 317,
+      "nm_id": 2389212,
+      "brand": "Mr. Beast",
+      "status": 202
+    }
+  ],
+  "locale": "en",
+  "internal_signature": "",
+  "customer_id": "test",
+  "delivery_service": "meest",
+  "shardkey": "9",
+  "sm_id": 99,
+  "date_created": "2024-11-26T06:22:19Z",
+  "oof_shard": "1"
+}
+
+### Get just created order
+GET http://localhost:3000/orders/mrbeasteb7b2b84b6test HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: */*
