@@ -52,6 +52,86 @@ Apache Kafka разверните локально
 Результат
 По готовности сервиса снимите короткое видео работы интерфейса и вместе со ссылкой на репозиторий пришлите на проверку через личный кабинет.
 
+## API Description
+```http request
+### Example order
+GET http://localhost:3000/orders/b563feb7b2b84b6test HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: */*
+```
+
+```http request
+POST http://localhost:3000/orders HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: */*
+
+{
+  "order_uid": "test1september2024",
+  "track_number": "MRBEAST",
+  "entry": "OZON",
+  ...
+}
+```
+
+## DB Schema
+```mermaid
+erDiagram
+%%    Orders ||--o{ NAMED-DRIVER : allows
+    Orders {
+        VARCHAR order_uid PK
+        VARCHAR track_number
+        VARCHAR entry
+        VARCHAR locale
+        VARCHAR internal_signature
+        VARCHAR customer_id
+        VARCHAR delivery_service
+        VARCHAR shardkey
+        TIMESTAMPZ date_created
+        VARCHAR oof_shard
+    }
+    Deliveries ||--o{ Orders : is
+    Deliveries {
+        VARCHAR order_uid PK,FK
+        VARCHAR name
+        VARCHAR phone
+        VARCHAR zip
+        VARCHAR city
+        VARCHAR address
+        VARCHAR region
+        VARCHAR email
+    }
+    Items ||--o{ Orders : is
+    Items {
+        VARCHAR order_uid FK
+        BIGINT  chrt_id
+        VARCHAR  track_number
+        BIGINT  price
+        VARCHAR  rid
+        VARCHAR  name
+        BIGINT  sale
+        VARCHAR  i_size
+        BIGINT  total_price
+        BIGINT  nm_id
+        VARCHAR  brand
+        BIGINT  status
+    }
+    Payments ||--o{ Orders : is
+    Payments {
+        VARCHAR transaction_id FK
+        VARCHAR request_id
+        VARCHAR currency
+        VARCHAR provider
+        BIGINT amount
+        BIGINT payment_dt
+        VARCHAR bank
+        BIGINT delivery_cost
+        BIGINT goods_total
+        BIGINT custom_fee
+    }
+```
+
 Модель данных
 ```json
 {
