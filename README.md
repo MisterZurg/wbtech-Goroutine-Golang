@@ -1,4 +1,10 @@
 # Горутиновый Golang
+[![Lint Status](https://img.shields.io/github/actions/workflow/status/MisterZurg/wbtech-Goroutine-Golang/golangci-lint.yml?branch=main&style=for-the-badge)](https://github.com/MisterZurg/wbtech-Goroutine-Golang/actions?workflow=golangci-lint)
+[![Coverage Status](https://img.shields.io/codecov/c/gh/MisterZurg/wbtech-Goroutine-Golang.svg?logo=codecov&style=for-the-badge)](https://codecov.io/gh/MisterZurg/wbtech-Goroutine-Golang)
+
+[//]: # ([![]&#40;http://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge&#41;]&#40;https://pkg.go.dev/github.com/MisterZurg/wbtech-Goroutine-Golang&#41;)
+
+
 
 ![banner.png](banner.png)
 
